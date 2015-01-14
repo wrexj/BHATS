@@ -12,65 +12,73 @@ DJM - Added BCH-Grey color to features
 
 //* style variables *//
 
+
 // headline font
-$headline-font: "Bree Serif", serif;
+$headline-font: "Oswald", sans-serif;
 
 // alternative headline font
-$headline-font-alt: "Bree Serif", sans-serif;
+$headline-font-alt: "Oswald", sans-serif;
 
 // main font
-$font: "Lato", sans-serif;
+$font: "Droid Serif", serif;
 
+
+//define colors
+$black: #000;
+$blue: #3A6F8F;
 $brown: #766341;
 $burgundy: #601B28;
-$blue: #3A6F8F;
-$orange: #c63;
-$turquoise: #53cfd7;
-$tan: #d4c89e;
-$grey: #ccc;
-$ltgrey: #f2f2f2;
 $charcoal: #656565;
-$red: #f93c04;
-$green: #5C8726;
-$bhagreen: #708770;
-$black: #000;
+$green1: #5C8726;
+$green: green; // general success and error colors
+$greenbha: #124d32;
+$grey: #ccc;  //Nave Hover
+$ltgrey: #f2f2f2;
+$orange-glow: #f93c04;
+$orange: #c63;
+$red: red; // general success and error colors
+$tan: #d4c89e;
+$turquoise: #53cfd7;
 $white: #fff;
+
 $facebook: #3b5998;
 $twitter: #00aced;
 
-$onecolumn-bg: $white ;
+//background
+$onecolumn-bg: $tan ;
 $twocolumn-color: $black;
+$supporter-nav-bg: $tan;
 
-$site-bg: $white;
-$site-color: $black;
-$desktop-site-bg: $white;
+//theme
+$theme-color-1: $orange-glow;
+$theme-color-2: $blue; 
+$theme-color-3: $green1; 
+$theme-color-4: $ltgrey;
+
+
+//default site colors
+$desktop-site-bg: $ltgrey;
 $desktop-site-color: $black;
 
-$theme-color-1: $red;
-$theme-color-2: $blue;
-$theme-color-3: $green;
-$theme-color-4: $turquoise;
-
-//Featured Content Slider
-$flex-color: $white;
-$flex-background: transparent;
+//color for featured image
 $features-headline-color: $white;
+$flex-background: transparent;
+$flex-border: 3px solid $charcoal;
+$flex-color: $white;
 
-$icon-button-bg: $orange;
 
-$nav-hover: $green;
-$nav-hover-color: $white;
-$nav-background: $bhagreen;
-$subnav-background: $bhagreen;
+//page headlines
+$headline-transform: uppercase;
+$headline-weight: 500;
+
+//all menus
+$nav-background: $green1;
 $nav-color: $white;
 $nav-container-border: 0;
+$nav-hover-color: $greenbha;
+$subnav-background: $greenbha;
 
 
-// general success and error colors
-$red: #b94a48;
-$green: #619114;
-
-// custom colors
 
 
 
@@ -243,28 +251,28 @@ nav, .subnav {
     display: inline-block;
     margin: 0;
     position: relative;
-    background-color: $subnav-background;
+    background-color: $nav-background;
     border: none;
     line-height: 45px;
     a {
       display: block;
       width: 100%;
       height: 100%;
-      color: white;
+      color: $white;
       padding: 0 10px;
       font-size: 16px;
       .icon-angle-down {
-				display: none;
-			}
+        display: none;
+      }
     }
     &:last-child {
       margin-right: 0;
     }
     &:hover, &.active{
       border-color: transparent;
-      background-color: $nav-hover;
+      background-color: $nav-hover-color;
       a {
-        color: $nav-hover-color;
+        color: $nav-color;
       }
     }
   }
@@ -302,7 +310,7 @@ nav, .subnav {
     padding: 5px 20px 5px 22px;
 
     &:hover {
-      background-color: $nav-hover;
+      background-color: $nav-hover-color;
       text-decoration: none;
     }
   }
@@ -317,6 +325,9 @@ nav, .subnav {
   clear: both;
   font-size: 13px;
   max-width: 100%;
+  color: $nav-color;
+  background-color: $nav-background;
+
   li{
     margin-bottom: 13px;
   }
@@ -325,6 +336,8 @@ nav, .subnav {
 .desktop-nav {
   li:hover .sub {
     display: block;
+    background-color: $nav-hover-color;
+    color: $nav-color
   }
 }
 

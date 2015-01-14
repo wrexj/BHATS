@@ -6,103 +6,109 @@
 //* style variables *//
 
 // headline font
-$headline-font: "Bree Serif", serif;
-$title-font-weight: 700;
-$headline-font-alt: "Bree Serif", sans-serif;
+$headline-font: "Oswald", sans-serif;
+
+// alternative headline font
+$headline-font-alt: "Oswald", sans-serif;
 
 // main font
-$font: "Lato", sans-serif;
+$font: "Droid Serif", serif;
 
-//$theme-color-1: #b85812;
-//$theme-color-2: #e0d6c8;
-//$theme-color-3: #cc6633;
-//$theme-color-4: #516e16;
 
-// form input area focus color
-$theme-color-5: rgba(123, 163, 41, 0.6);
 
-// general success and error colors
-$red: #b94a48;
-$green: #619114;
 
-$header-color: #628221;
 
-$brown: #766341;
-$blue: #3A6F8F;
-$burgundy: #601B28;
-$orange: #c63;
-$turquoise: #3A6F8F;
-$tan: #d4c89e;
-$grey: #ccc;
-$ltgrey: #f2f2f2;
-$charcoal: #656565;
-$orange: #c63;
-$red: #5C8726;
-$green: #5C8726;
-$bhagreen: #708770;
+//define colors
 $black: #000;
+$blue: #3A6F8F;
+$brown: #766341;
+$burgundy: #601B28;
+$charcoal: #656565;
+$green1: #5C8726;
+$green: green; // general success and error colors
+$greenbha: #124d32;
+$grey: #ccc;  //Nave Hover
+$ltgrey: #f2f2f2;
+$orange-glow: #f93c04;
+$orange: #c63;
+$red: red; // general success and error colors
+$tan: #d4c89e;
+$turquoise: #53cfd7;
 $white: #fff;
 
 $facebook: #3b5998;
 $twitter: #00aced;
 
-$header-color: $green;
+//background
+$onecolumn-bg: $tan ;
+$twocolumn-color: $black;
+$supporter-nav-bg: $tan;
+
+
+//theme
+$theme-color-1: $orange-glow;
+$theme-color-2: $blue;
+$theme-color-3: $green1;
+$theme-color-4: $ltgrey;
+$theme-color-5: rgba(141, 207, 215, 0.6); // form input area focus color
+
+
+//header
+$header-color: $green1;
 $header-text-color: #000;
 
-$site-bg: $white;
-$site-color: $charcoal;
-$desktop-site-bg: $white;
-$desktop-site-color: $charcoal;
+//byline (authors)
+$byline-image-border: $ltgrey;
 
-// custom colors
-$theme-color-1: $red;
-$theme-color-2: $blue;
-$theme-color-3: $green;
-$theme-color-4: $turquoise;
-$theme-color-4: $white;
-
-
-
-
-$onecolumn-bg: white;
-$twocolumn-color: #000;
-$footer-bg: $charcoal;
-$headline-weight: 500;
 $check_radio_sheet: url(check_radio_sheet_navy.png);
-$progress: #ffa38a;
-$headline-transform: none;
+
+$delete-border: 2px solid $orange;
+$delete: $orange;
+
+//default site colors
+$site-bg: $ltgrey;
+$desktop-site-bg: $ltgrey;
+$desktop-site-color: $black;
+$footer-bg: $charcoal;
 $opaque-bg-rgb: rgb(212, 200, 158);
 $opaque-bg-rgba: rgba(212, 200, 158, 0.8);
-$share-bar-bg: transparent;
-$icon-button-bg: $grey;
-$icon-button-border: 2px solid #f93c04;
-$icon-button-color: #fff;
-$byline-image-border: $orange;
-$delete: $orange;
-$delete-border: 2px solid $orange;
-$follow: #d4c89e;
-$follow-color: $grey;
-$follow-border: 2px solid #000;
 
-//Featured Content Slider
-$flex-color: $white;
-$flex-background: transparent;
-$features-headline-color: $white;
-
-//Supporter Nav Buttons
-$supporter-nav-button-one: $bhagreen;
-$supporter-nav-color-one: $white;
-$supporter-nav-button-two: $burgundy;
-$supporter-nav-color-two: $white;
-$supporter-nav-button-three: $tan;
-$supporter-nav-color-three: $white;
+//color for featured image
 $feature-border: 0;
+$features-headline-color: $white;
+$flex-background: transparent; //Featured Content Slider
+$flex-color: $white; //Featured Content Slider
+
+$follow-border: 2px solid #000;
+$follow-color: $grey;
+$follow: #d4c89e;
+
+//page headlines
+$headline-transform: uppercase;
+$headline-weight: 500;
+
+//sefault icon colors
+$icon-button-bg: $grey;
+$icon-button-border: 2px solid $ltgrey;
+$icon-button-color: $white;
+$progress: #ffa38a;
+$share-bar-bg: transparent;
+
 $supporter-nav-button-border: 0;
-$theme-color-5: rgba(141, 207, 215, 0.6);
+$supporter-nav-button-one: $green1;
+$supporter-nav-button-three: $tan;
+$supporter-nav-button-two: $burgundy;
+$supporter-nav-color-one: $white;
+$supporter-nav-color-three: $white;
+$supporter-nav-color-two: $white;
+
+
+
+
 
 @mixin transparent-bg(){
-  background: $opaque-bg-rgb;
-    background: $opaque-bg-rgba;
+background: $opaque-bg-rgb;
+background: $opaque-bg-rgba;
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF)";
 }
@@ -474,20 +480,21 @@ nav {
 
 .twocolumn-container {
   .left-column, .right-column-wide {
-    background-color: #fff;
+    background-color: $onecolumn-bg;
     padding: 20px;
     @include border-radius(2px);
     margin-bottom: 15px;
   }
   .right-column, .left-column-narrow {
     margin-bottom: 15px;
+    background-color: $supporter-nav-bg
   }
 }
 
 // page layout if the sidebar is turned off
 
 .onecolumn-container {
-  background-color: #fff;
+  background-color: $onecolumn-bg;
   padding: 20px;
   @include border-radius(2px);
   margin-bottom: 20px;
@@ -1070,7 +1077,7 @@ footer {
 
 .off-button-small {
   font-size: 11px;
-  color: $red;
+  color: red;
 }
 
 .on-button-small {
@@ -1087,7 +1094,7 @@ footer {
 // applied to alerts or warnings
 
 .red {
-  color: $red;
+  color: red;
 }
 
 small {
