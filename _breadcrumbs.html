@@ -1,0 +1,80 @@
+{% if page.level > 1 %}
+{% assign home = page.parent %}
+{% else %}
+{% assign home = page %}
+{% endif %}
+
+
+
+{% if home.has_subnav? and page.is_nav? %}
+<div class="inner-page-nav">
+	<div class="tablet-visible mobile-visible width-container">
+	  <div id="page-nav" class="page-nav">
+	      <ul class="breadcrumbs">
+	        {% for child in home.nav_children %}
+			      {% if child.leaf? or child.nav_children.size == 0 %}
+			      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+			        {% if forloop.last %}<a href="{{ child.url }}">{{ child.name }}</a>{% else %}<a href="{{ child.url }}">{{ child.name }}</a> <span class="divider">/</span>{% endif %}
+			      </li>
+			      {% else %}
+			      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+			        {% if forloop.last %}<a href="{{ child.url }}">{{ child.name }}</a>{% else %}<a href="{{ child.url }}">{{ child.name }}</a> <span class="divider">/</span>{% endif %}
+			      </li>
+			      {% endif %}
+		      {% endfor %}
+	      </ul>
+	  </div>
+	</div>
+
+	<div class="desktop-visible width-container">
+	  <div class="subnav-container clearfix" id="subnav-container" role="navigation">
+	    <ul id="subnav" class="subnav desktop-nav">
+	      {% for child in home.nav_children %}
+	      {% if child.leaf? or child.nav_children.size == 0 %}
+	      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+	        <a href="{{ child.url }}">{{ child.name }}</a>
+	      </li>
+	      {% else %}
+	      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+	        <a href="{{ child.url }}">{{ child.name }} <i class="icon-angle-down"></i></a>
+	        <ul class="sub">
+	          {% for child2 in child.nav_children %}
+	          <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
+	          {% endfor %}
+	        </ul>
+	      </li>
+	      {% endif %}
+	      {% endfor %}
+	    </ul>
+	  </div>
+	</div>
+</div>
+
+{% elsif page.has_parent? %}
+
+<div class="inner-page-nav">
+	<div class="width-container">
+		<div class="subnav-container clearfix" id="subnav-container" role="navigation">
+	    <ul id="subnav" class="subnav">
+	      {% for child in home.nav_children %}
+		      {% if child.leaf? or child.nav_children.size == 0 %}
+		      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+		        <a href="{{ child.url }}">{{ child.name }}</a>
+		      </li>
+		      {% else %}
+		      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+		        <a href="{{ child.url }}">{{ child.name }} <i class="icon-angle-down"></i></a>
+		        <ul class="sub">
+		          {% for child2 in child.nav_children %}
+		          <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
+		          {% endfor %}
+		        </ul>
+		      </li>
+		      {% endif %}
+		    {% endfor %}
+	    </ul>
+	  </div>
+	</div>
+</div>
+  
+{% endif %}

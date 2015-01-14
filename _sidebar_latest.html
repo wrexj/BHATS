@@ -1,0 +1,7 @@
+<div class="sidebar-posts">
+  {% for post in page.blog.most_recent_blog_posts %}
+    <div class="padtopmore">
+      <div class="blog_teaser">{{ post.blog_post.content_full }}</div>
+    </div>
+  {% endfor %}
+</div>

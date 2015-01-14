@@ -1,0 +1,726 @@
+/* ===================================================================================
+
+  BHA Sandbox
+  Tablet and desktop.scss
+
+   This is the tablet and desktop stylesheet. It applies to viewports above 768px.
+   For the mobile first stylesheet which applies to all screen widths, see theme.scss.
+
+DJM - Added BCH-Grey color to features
+
+=================================================================================== */
+
+//* style variables *//
+
+// headline font
+$headline-font: "Bree Serif", serif;
+
+// alternative headline font
+$headline-font-alt: "Bree Serif", sans-serif;
+
+// main font
+$font: "Lato", sans-serif;
+
+$brown: #766341;
+$burgundy: #601B28;
+$blue: #3A6F8F;
+$orange: #c63;
+$turquoise: #53cfd7;
+$tan: #d4c89e;
+$grey: #ccc;
+$ltgrey: #f2f2f2;
+$charcoal: #656565;
+$red: #f93c04;
+$green: #5C8726;
+$bhagreen: #708770;
+$black: #000;
+$white: #fff;
+$facebook: #3b5998;
+$twitter: #00aced;
+
+$onecolumn-bg: $white ;
+$twocolumn-color: $black;
+
+$site-bg: $white;
+$site-color: $black;
+$desktop-site-bg: $white;
+$desktop-site-color: $black;
+
+$theme-color-1: $red;
+$theme-color-2: $blue;
+$theme-color-3: $green;
+$theme-color-4: $turquoise;
+
+//Featured Content Slider
+$flex-color: $white;
+$flex-background: transparent;
+$features-headline-color: $white;
+
+$icon-button-bg: $orange;
+
+$nav-hover: $green;
+$nav-hover-color: $white;
+$nav-background: $bhagreen;
+$subnav-background: $bhagreen;
+$nav-color: $white;
+$nav-container-border: 0;
+
+
+// general success and error colors
+$red: #b94a48;
+$green: #619114;
+
+// custom colors
+
+
+
+
+// border-radius mixin
+@import "border_radius";
+
+// fluid grid for tablet
+@import "grid-tablet";
+
+//compass css3 mixins
+@import "compass/css3";
+
+//mobile nav
+@import "mobile-nav";
+
+// page layout if the sidebar is turned on
+
+.twocolumn-container {
+  margin-bottom: 20px;
+  .left-column, .right-column-wide {
+    //background-color: $tan;
+    padding: 20px;
+    @include border-radius(2px);
+    float: left;
+    width: 71.2261208577%;
+    // 710px ÷ 1026px
+    margin-right: 1.559454191033%;
+    // 16px ÷ 1026px
+    margin-bottom: 0;
+  }
+  .right-column, .left-column-narrow {
+    float: left;
+    width: 27.214424951267%;
+    // 310px ÷ 1026px
+    margin-bottom: 0;
+    //background-color: $tan;
+  }
+  .right-column-wide {
+    margin-right: 0;
+  }
+  .left-column-narrow {
+    margin-right: 1.559454191033%;
+    // 16px ÷ 1026px
+  }
+}
+
+// wraps your site name or site logo
+
+header {
+  max-width: 27.875243664717%;
+  // 286px ÷ 1140px
+  float: left;
+  padding: 35px 0 20px 30px;
+}
+
+
+.site-logo {
+  header, header.splash {
+    float: left;
+    text-align: left;
+    padding: 0 0 20px 0;
+    max-width: 27.875243664717%;
+    margin-left: 0;
+    img {
+      max-width: 200px;
+    }
+  }
+}
+
+// site wide footer
+
+footer {
+  .footer-right {
+    margin-top: 0;
+    text-align: right;
+  }
+  .row-fluid [class*="span"] {
+    min-height: 0;
+  }
+}
+
+// hides off canvas nav
+
+.wrap.active {
+  left: 0;
+}
+
+.sharetable {
+  display: block;
+  width: 487px;
+  .facebook-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 320px;
+  }
+  .twitter-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 75px;
+  }
+  .gplus-cell {
+    float: left;
+    text-align: left;
+    vertical-align: top;
+    width: 52px;
+  }
+}
+
+.mobile-visible {
+  display: none;
+}
+
+.desktop-visible {
+  display: block;
+}
+
+.flash-share {
+  .float {
+    float: right;
+  }
+}
+
+// icon which activates off canvas nav
+
+.menu-link {
+  display: none;
+}
+
+// top nav with drop downs
+
+.inner-page {
+  .tablet-visible + .desktop-visible {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: -20px;
+    background: black;
+    #subnav-container {
+      width: 1026px;
+      margin: 0 auto;
+    }
+  }
+}
+
+nav, .subnav {
+  background-color: $nav-background;
+  border-right: 0;
+  border-top: 0;
+  height: auto;
+//  max-width: 80.2261208577%;
+  margin-top: 25px;
+  // 700px ÷ 1026px
+//  margin-left: 1.949317738791%;
+  // 20px ÷ 1026px
+  position: static;
+  width: auto;
+  .topnav {
+    margin: 0;
+    padding: 0;
+    clear: both;
+    list-style: none;
+    font-size: 14px;
+  }
+  li {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    background-color: $subnav-background;
+    border: none;
+    line-height: 45px;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: white;
+      padding: 0 10px;
+      font-size: 16px;
+      .icon-angle-down {
+				display: none;
+			}
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover, &.active{
+      border-color: transparent;
+      background-color: $nav-hover;
+      a {
+        color: $nav-hover-color;
+      }
+    }
+  }
+  /* controls bg color of top when hovering on sub */
+  .sub {
+    position: absolute;
+    top: 44px;
+    left: 0px;
+    z-index: 99999;
+    background-color: $subnav-background;
+    padding: 8px 0 5px 0;
+    @include border-radius-top-right(2px);
+    @include border-radius-bottom-left(2px);
+    @include border-radius-bottom-right(2px);
+    width: 200px;
+    display: none;
+  }
+  .sub li {
+    width: 100%;
+    border: none;
+    color: $nav-color;
+    font-size: 13px;
+    line-height: 18px;
+    display: block;
+    background-color: $subnav-background;
+    border-color:transparent;
+    @include border-radius(0);
+
+    &.mobile-visible {
+      display: none;
+    }
+  }
+  .sub a {
+    background: none;
+    padding: 5px 20px 5px 22px;
+
+    &:hover {
+      background-color: $nav-hover;
+      text-decoration: none;
+    }
+  }
+}
+
+// navigation shown if a page has more than one subpage
+
+.subnav {
+  margin: 0 0 15px 0;
+  padding: 0;
+  float: left;
+  clear: both;
+  font-size: 13px;
+  max-width: 100%;
+  li{
+    margin-bottom: 13px;
+  }
+}
+
+.desktop-nav {
+  li:hover .sub {
+    display: block;
+  }
+}
+
+// follow page link shown in page stream
+
+.page-follow {
+  float: right;
+  margin-top: -35px;
+}
+
+// inline radio buttons and check boxes
+
+.radio-inline, .checkbox-inline {
+  span {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin: 0;
+    display: inline-block;
+  }
+  input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+    background-color: transparent;
+    color: #505054;
+  }
+  label {
+    display: block;
+  }
+  label.radio, label.checkbox {
+    .option_label {
+      display: inline;
+    }
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: auto;
+    background-color: transparent;
+    font-family: $font;
+    color: #505054;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+    padding: 0;
+    margin: 0 10px 10px 5px;
+  }
+  label.checkbox {
+    position: relative;
+    padding: 0;
+    height: auto;
+    font-size: inherit;
+    margin: 0;
+  }
+ &.checkbox-inline {
+    vertical-align: top;
+    li {
+      width: auto;
+      label {
+        width: auto;
+      }
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// inline radio buttons
+
+.radio.inline, .checkbox.inline, .inline label.radio {
+  display: inline-block;
+  margin-right: 20px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 0;
+  padding: 0;
+  background: none;
+  @include box-shadow(0);
+}
+
+// wraps credit card icons
+
+.cc {
+  padding-bottom: 10px;
+}
+
+// paid membership options
+
+ul.membership-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  li.membership {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 1.22% 1.22% 0;
+    width: 31.8%;
+    height: 250px;
+    .buy {
+      position: absolute;
+      width: 88px;
+      bottom: 15px;
+      margin-left: -44px;
+      left: 50%;
+    }
+  }
+}
+
+// featured content slider
+
+.page-features {
+  position: relative;
+  margin: 0 0 50px 0;
+  .features-headline {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    /* DJM Added Color and Background */
+    color: $features-headline-color;
+    background: transparent;
+  }
+}
+
+.flex-direction-nav {
+  top: 36%;
+}
+
+.flex-prev {
+  display: block;
+  height: 58px;
+  font-size: 25px;
+  border: none;
+  background: transparent;
+  &:before {
+    content: " ";
+    height: 74px;
+    width: 34px;
+    background: url('arrow-left.png') no-repeat;
+  }
+}
+
+.flex-next {
+  display: block;
+  height: 58px;
+  font-size: 25px;
+  border: none;
+  background: transparent;
+  &:before {
+    content: " ";
+    height: 74px;
+    width: 34px;
+    background: url('arrow-right.png') no-repeat;
+  }
+}
+
+// inline sign in form
+
+.user-session-form-container {
+  .oauth-links {
+   margin-bottom: 0;
+  }
+  .sign-in-with-email, .sign-up {
+    border-left: 1px solid #ccc;
+    padding-left: 2.7624309392265194%;
+  }
+}
+
+.review-rules {
+  float: right;
+  font-size: 12px;
+  padding: 0;
+}
+
+// page specific styles
+
+.page-user-sessions-new-wide, .page-users-accounts-new-wide, .page-users-password-resets-new-wide, .page-users-passwords-new-wide {
+  .onecolumn-container {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 75%;
+  }
+  footer {
+    margin: 0 auto;
+    width: 75%;
+  }
+}
+
+.page-pages-show-voter-registration .iframe-wrapper {
+  left: 0;
+  width: 100%;
+}
+
+#event_rsvp_guests_count, input.quantity, #signup_donations_to_raise_amount {
+  width: 25%;
+}
+
+.suggestion-tag-list {
+  li {
+    margin: 15px 15px 10px 0;
+  }
+}
+
+input#donation_amount_other {
+  width: 30%;
+}
+
+.distance {
+  .within {
+    position: relative;
+    top: 2px;
+    display: inline;
+    padding-right: 5px;
+  }
+}
+
+.page-user-sessions-new-wide {
+  h2 {
+    font-size: 31.5px;
+    line-height: 35px;
+  }
+}
+
+// inline formatting for name, activity type and date in page stream for tablet and desktop view
+
+ul#page-stream {
+  li.activity  {
+    span + a {
+    display: inline;
+    }
+  }
+  .activity-time {
+    display: inline;
+  }
+  .timeago {
+    display: inline;
+    padding-right: 0;
+    float: none;
+    font-size: 65%;
+    color: inherit;
+  }
+  .activity_links a {
+    display: inline;
+  }
+  .activity_content {
+    clear: none;
+  }
+}
+
+// Tablet only
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+// off canvas nav to be used on tablets, since drop downs don't work on touch devices
+
+  nav {
+    @include mobile-nav;
+    float: none;
+    margin: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      @include border-radius(0);
+      line-height: 21px;
+      &.active, &.drop {
+        background-color: $theme-color-4;
+        border-bottom: 1px solid darken($theme-color-4, 15);
+        & > a {
+          color: #fff;
+        }
+      }
+      a {
+        padding: .8em;
+      }
+    }
+    .sub {
+      position: static;
+      width: 100%;
+      padding: 0;
+      li {
+        border-bottom: 1px solid darken($theme-color-4, 15);
+        background-color: darken($theme-color-4, 5);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          padding: 12px;
+          color: #ccc;
+        }
+        &.mobile-visible {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .menu-link {
+    display: block;
+  }
+
+  .wrap.active {
+    left: 16em;
+  }
+
+// javascript is used to wrap all iframes in a span called responsive-embed-wrapper to make them responsive.
+// once the iframe is wrapped in said span, it will be shown.
+
+  iframe[src *= 'youtube'] {
+    display: none;
+  }
+
+  .responsive-embed-wrapper iframe {
+    display: block;
+  }
+
+  .fb-like-box iframe {
+    display: block;
+  }
+
+ header {
+    padding: 24px 0;
+    max-width: 78%;
+    @each $current-headline-font in $headline-font {
+      @if $current-headline-font == 'Josefin Sans' {
+        padding-top: 31px;
+      }
+    }
+  }
+
+// replaces the subnav with breadcrumbs, as dropdowns don't work in touch devices
+
+  .tablet-visible {
+    display: block;
+  }
+
+  .desktop-visible {
+    .subnav-container {
+      display: none;
+    }
+  }
+}
+
+// Desktop above 1140px styles
+
+@media only screen and (min-width: 1140px) {
+
+  // maximum side width container
+
+  .width-container {
+    width: 1026px; /* 1140px - 10% for margins */
+    margin: 0 auto;
+  }
+
+  // paid membership options
+
+  ul.membership-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li.membership {
+      position: relative;
+      float: left;
+      text-align: center;
+      list-style: none;
+      background-color: #f3f3f3;
+      @include border-radius(2px);
+      padding: 15px;
+      display: inline-block;
+      margin: 0 10px 15px 0;
+      width: 23.983739837398%; // 236px ÷ 984px
+      height: 250px;
+      .membership-bottom {
+        background-color: #444;
+        color: #ccc;
+      }
+      .membership-blurb {
+        padding: 15px 0;
+        font-size: 13px;
+        line-height: 16px;
+      }
+      .buy {
+        position: absolute;
+        width: 88px;
+        bottom: 15px;
+        margin-left: -44px;
+        left: 50%;
+      }
+      .badge {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

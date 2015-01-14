@@ -1,0 +1,93 @@
+<div class="twocolumn-container clearfix">
+	
+  <div class="left-column">
+
+    {{ content_for_notifications }}
+
+    <div class="content-{{ request.template  | replace: '_', '-' }}">
+      {% yield %}
+    </div>
+
+  </div>
+  <!-- .left_column -->
+
+  <div class="right-column">
+
+    {% if request.logged_in? %}
+
+    {% include "supporter_nav" %}
+
+    {% else %}
+
+    <ul class="supporter-nav">
+      <li><a href="{{ request.facebook_connect_url }}"><i class="icon-facebook-squared"></i> Sign in with Facebook</a>
+      </li>
+      <li><a href="{{ request.twitter_connect_url }}"><i class="icon-twitter-squared"></i> Sign in with Twitter</a></li>
+      <li><a href="/login"><i class="icon-user"></i> Sign in with Email</a></li>
+    </ul>
+
+    {% if site.has_signup_page? %}
+    {% include "signup_form" with site.signup_page %}
+    {% endif %}
+
+    {% if site.has_button1? %}
+    <a class="button supporter-nav-button" href="{{ site.button1_page.full_url_with_profile_recruiter }}">{{ site.button1_text }}</a>
+    {% endif %}
+
+    {% if site.has_button2? %}
+    <a class="button supporter-nav-button" href="{{ site.button2_page.full_url_with_profile_recruiter }}">{{ site.button2_text }}</a>
+    {% endif %}
+
+    {% if site.has_button3? %}
+    <a class="button supporter-nav-button" href="{{ site.button3_page.full_url_with_profile_recruiter }}">{{ site.button3_text }}</a>
+    {% endif %}
+    
+    {% subpage "sidebar" with "sidebar_latest" %}
+    
+    <div class="social-side">
+    	<h2>Connect with us!</h2>
+    	<ul>
+    		<li><a href="https://twitter.com/Backcountry_H_A" target="_blank"><img src="twitter-side.png"></a></li>
+    		<li><a href="https://www.facebook.com/backcountryhabitat" target="_blank"><img src="facebook-side.png"></a></li>
+    		<li><a href="https://www.youtube.com/user/BackcountryHunters1" target="_blank"><img src="youtube-side.png"></a></li>
+    		<li><a href="http://www.pinterest.com/huntbackcountry/" target="_blank"><img src="pinterest-side.png"></a></li>
+    		<li><a href="https://plus.google.com/116286248963011712241/posts" target="_blank"><img src="google-side.png"></a></li>
+    		<li><a href="http://www.linkedin.com/company/backcountry-hunters-&-anglers" target="_blank"><img src="linkedin-side.png"></a></li>
+    	</ul>
+    </div>
+
+    <div class="padtopmore">
+        {% if site.has_facebook_page? %}
+        <div class="desktop-visible">
+          <div class="fb-like-box" data-href="https://www.facebook.com/backcountryhabitat" data-height="500px" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="false"></div>
+        </div>
+        <div class="mobile-visible">
+          <div class="fb-like-box" data-href="https://www.facebook.com/backcountryhabitat" data-width="240" data-stream="false"></div>
+        </div>
+
+        {% else %}
+        <fb:like href="{{ site.full_url }}" colorscheme="{{ site.facebook_colorscheme }}" width="240"></fb:like>
+        {% endif %}
+
+        {% if site.has_twitter? %}
+        <div class="padtopmore">
+          <a href="https://twitter.com/Backcountry_H_A" class="twitter-follow-button" data-show-count="false">Follow @Backcountry_H_A on Twitter</a>
+        </div>
+        {% endif %}
+        {% if page and page.has_rss? %}
+        <div class="padtopmore">
+          <a href="{{ page.rss_url }}"><i class="icon-rss"></i></a> <a href="{{ page.rss_url }}">Subscribe with RSS</a>
+        </div>
+        {% elsif page and page.has_parent? and page.parent.has_rss? %}
+        <div class="padtopmore">
+          <a href="{{ page.parent.rss_url }}"><i class="icon-rss"></i></a>
+          <a href="{{ page.parent.rss_url }}">Subscribe with RSS</a>
+        </div>
+        {% endif %}
+    </div>
+
+    {% endif %}
+
+  </div>
+  <!-- .right-column -->
+</div> <!-- .twocolumn_container -->
