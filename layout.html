@@ -104,8 +104,13 @@
         {% endif %}
 
         {% if page.features_count > 0 %}
+<!-- DJM - Replaced this
           <div class="features" style="{% if page.is_homepage? %}margin-bottom: -50px;{% endif %}">
 	           {% include "features" %}
+          </div>
+with this -->
+	  <div class="width-container">
+           {% include "features" %}
           </div>
         {% endif %}
 				
